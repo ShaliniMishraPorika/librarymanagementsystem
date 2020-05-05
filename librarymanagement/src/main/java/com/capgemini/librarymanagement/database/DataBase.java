@@ -1,6 +1,6 @@
 package com.capgemini.librarymanagement.database;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 import com.capgemini.librarymanagement.dto.AdminBean;
 import com.capgemini.librarymanagement.dto.BookBean;
@@ -8,8 +8,10 @@ import com.capgemini.librarymanagement.dto.RequestBean;
 import com.capgemini.librarymanagement.dto.StudentBean;
 
 public class DataBase {
-	public static final LinkedList<AdminBean> admin = new LinkedList<AdminBean>();
-	public static final LinkedList<StudentBean> student = new LinkedList<StudentBean>();
-	public static final LinkedList<BookBean> book = new LinkedList<BookBean>();
-	public static final LinkedList<RequestBean> request = new LinkedList<RequestBean>();
+	public static final ArrayList<AdminBean> admin = new ArrayList<AdminBean>();
+	public static final ArrayList<StudentBean> student = new ArrayList<StudentBean>();
+	public static final ArrayList<BookBean> book = new ArrayList<BookBean>();
+	public static final ArrayList<RequestBean> request = new ArrayList<RequestBean>();
+	
+	//AdminBean bean = new AdminBean(); 
 }
