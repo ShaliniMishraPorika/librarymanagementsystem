@@ -3,7 +3,6 @@ package com.capgemini.librarymanagement.controller;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -12,9 +11,9 @@ import com.capgemini.librarymanagement.dto.AdminBean;
 import com.capgemini.librarymanagement.dto.BookBean;
 import com.capgemini.librarymanagement.dto.RequestBean;
 import com.capgemini.librarymanagement.dto.StudentBean;
+import com.capgemini.librarymanagement.exception.LMSException;
 import com.capgemini.librarymanagement.factory.AdminFactory;
 import com.capgemini.librarymanagement.factory.StudentFactory;
-import com.capgemini.librarymanagement.factory.ValidationException;
 import com.capgemini.librarymanagement.service.AdminService;
 import com.capgemini.librarymanagement.service.StudentService;
 import com.capgemini.librarymanagement.validation.ValidationAdminStudent;
@@ -45,12 +44,9 @@ public class Controller {
 		String bookTitle = null;
 		String bookCategory = null;
 		String bookPublisherName = null;
-		// String bookIssuedate = null;
-		// String bookReturndate = null;
 		int bookCopies = 0;
 		long bookISBN = 0;
 		int bookCopyRightYear = 0;
-		// Date bookDateAdded = null;
 		String bookStatus = null;
 
 		ValidationAdminStudent validation = new ValidationAdminStudent();
@@ -61,6 +57,7 @@ public class Controller {
 			System.out.println("----------WELCOME TO LIBRARY-----------");
 			System.out.println("Press 1 to Admin Page");
 			System.out.println("Press 2 to Student Page");
+			System.out.println("Press 0 to Exit");
 			System.out.println("-----------------------------------");
 
 			int i = scanner.nextInt();
@@ -85,7 +82,7 @@ public class Controller {
 							} catch (InputMismatchException e) {
 								flag = false;
 								System.err.println("Id should contains only digits");
-							} catch (ValidationException e) {
+							} catch (LMSException e) {
 								flag = false;
 								System.err.println(e.getMessage());
 							}
@@ -100,7 +97,7 @@ public class Controller {
 							} catch (InputMismatchException e) {
 								flag = false;
 								System.err.println("Name should contains only Alphabates");
-							} catch (ValidationException e) {
+							} catch (LMSException e) {
 								flag = false;
 								System.err.println(e.getMessage());
 							}
@@ -115,7 +112,7 @@ public class Controller {
 							} catch (InputMismatchException e) {
 								flag = false;
 								System.err.println("Mobile Number  should contains only numbers");
-							} catch (ValidationException e) {
+							} catch (LMSException e) {
 								flag = false;
 								System.err.println(e.getMessage());
 							}
@@ -130,7 +127,7 @@ public class Controller {
 							} catch (InputMismatchException e) {
 								flag = false;
 								System.err.println("Email should be proper ");
-							} catch (ValidationException e) {
+							} catch (LMSException e) {
 								flag = false;
 								System.err.println(e.getMessage());
 							}
@@ -145,7 +142,7 @@ public class Controller {
 							} catch (InputMismatchException e) {
 								flag = false;
 								System.err.println("Enter correct Password ");
-							} catch (ValidationException e) {
+							} catch (LMSException e) {
 								flag = false;
 								System.err.println(e.getMessage());
 							}
@@ -204,7 +201,7 @@ public class Controller {
 										} catch (InputMismatchException e) {
 											flag = false;
 											System.err.println("Id should contains only digits");
-										} catch (ValidationException e) {
+										} catch (LMSException e) {
 											flag = false;
 											System.err.println(e.getMessage());
 										}
@@ -219,7 +216,7 @@ public class Controller {
 										} catch (InputMismatchException e) {
 											flag = false;
 											System.err.println("Book-Title should contains only Alphabates");
-										} catch (ValidationException e) {
+										} catch (LMSException e) {
 											flag = false;
 											System.err.println(e.getMessage());
 										}
@@ -234,7 +231,7 @@ public class Controller {
 										} catch (InputMismatchException e) {
 											flag = false;
 											System.err.println("Author Name should contains only Alphabates");
-										} catch (ValidationException e) {
+										} catch (LMSException e) {
 											flag = false;
 											System.err.println(e.getMessage());
 										}
@@ -249,7 +246,7 @@ public class Controller {
 										} catch (InputMismatchException e) {
 											flag = false;
 											System.err.println("Book-Category should contains only Alphabates");
-										} catch (ValidationException e) {
+										} catch (LMSException e) {
 											flag = false;
 											System.err.println(e.getMessage());
 										}
@@ -264,7 +261,7 @@ public class Controller {
 										} catch (InputMismatchException e) {
 											flag = false;
 											System.err.println("Book-Copies should contain Atleast 1");
-										} catch (ValidationException e) {
+										} catch (LMSException e) {
 											flag = false;
 											System.err.println(e.getMessage());
 										}
@@ -279,7 +276,7 @@ public class Controller {
 										} catch (InputMismatchException e) {
 											flag = false;
 											System.err.println("Book-PublisherName should contains only Alphabates");
-										} catch (ValidationException e) {
+										} catch (LMSException e) {
 											flag = false;
 											System.err.println(e.getMessage());
 										}
@@ -294,7 +291,7 @@ public class Controller {
 										} catch (InputMismatchException e) {
 											flag = false;
 											System.err.println("Book-ISBN Number contains only 10 digits");
-										} catch (ValidationException e) {
+										} catch (LMSException e) {
 											flag = false;
 											System.err.println(e.getMessage());
 										}
@@ -309,7 +306,7 @@ public class Controller {
 										} catch (InputMismatchException e) {
 											flag = false;
 											System.err.println("Book-COpyRightYear contains only year");
-										} catch (ValidationException e) {
+										} catch (LMSException e) {
 											flag = false;
 											System.err.println(e.getMessage());
 										}
@@ -324,7 +321,7 @@ public class Controller {
 										} catch (InputMismatchException e) {
 											flag = false;
 											System.err.println("Book-Status contains either Old or New");
-										} catch (ValidationException e) {
+										} catch (LMSException e) {
 											flag = false;
 											System.err.println(e.getMessage());
 										}
@@ -363,7 +360,7 @@ public class Controller {
 										} catch (InputMismatchException e) {
 											flag = false;
 											System.err.println("Id should contains only digits");
-										} catch (ValidationException e) {
+										} catch (LMSException e) {
 											flag = false;
 											System.err.println(e.getMessage());
 										}
@@ -378,7 +375,7 @@ public class Controller {
 										} catch (InputMismatchException e) {
 											flag = false;
 											System.err.println("Book-Title should contains only Alphabates");
-										} catch (ValidationException e) {
+										} catch (LMSException e) {
 											flag = false;
 											System.err.println(e.getMessage());
 										}
@@ -405,14 +402,11 @@ public class Controller {
 										} catch (InputMismatchException e) {
 											flag = false;
 											System.err.println("Book-Author should contains only Alphabates");
-										} catch (ValidationException e) {
+										} catch (LMSException e) {
 											flag = false;
 											System.err.println(e.getMessage());
 										}
 									} while (!flag);
-
-									// BookBean bean3 = new BookBean();
-									// bean3.setAuthor(bookAuthor);
 									List<BookBean> bookauthor = service.searchBookByAuthor(bookAuthor);
 									for (BookBean bookBean1 : bookauthor) {
 
@@ -423,11 +417,9 @@ public class Controller {
 											System.out.println("Book_Author is-->" + bookBean1.getAuthor());
 											System.out.println("Book_Category is-->" + bookBean1.getCategory());
 											System.out.println("Book_Copies is-->" + bookBean1.getCopies());
-											System.out
-													.println("Book_PublisherName is-->" + bookBean1.getPublisherName());
+											System.out.println("Book_PublisherName is-->" + bookBean1.getPublisherName());
 											System.out.println("Book_ISBN is-->" + bookBean1.getISBN());
-											System.out
-													.println("Book_CopyRightYear is-->" + bookBean1.getCopyRightYear());
+											System.out.println("Book_CopyRightYear is-->" + bookBean1.getCopyRightYear());
 											System.out.println("Book_DateAdded is-->" + bookBean1.getDateAdded());
 											System.out.println("Book_Status is-->" + bookBean1.getStatus());
 										} else {
@@ -446,14 +438,12 @@ public class Controller {
 										} catch (InputMismatchException e) {
 											flag = false;
 											System.err.println("Book-Author should contains only Alphabates");
-										} catch (ValidationException e) {
+										} catch (LMSException e) {
 											flag = false;
 											System.err.println(e.getMessage());
 										}
 									} while (!flag);
 
-									// BookBean bean4 = new BookBean();
-									// bean4.setAuthor(bookTitle);
 									List<BookBean> booktitle = service.searchBookByTitle(bookTitle);
 									for (BookBean bookBean1 : booktitle) {
 										if (bookBean1 != null) {
@@ -463,11 +453,9 @@ public class Controller {
 											System.out.println("Book_Author is-->" + bookBean1.getAuthor());
 											System.out.println("Book_Category is-->" + bookBean1.getCategory());
 											System.out.println("Book_Copies is-->" + bookBean1.getCopies());
-											System.out
-													.println("Book_PublisherName is-->" + bookBean1.getPublisherName());
+											System.out.println("Book_PublisherName is-->" + bookBean1.getPublisherName());
 											System.out.println("Book_ISBN is-->" + bookBean1.getISBN());
-											System.out
-													.println("Book_CopyRightYear is-->" + bookBean1.getCopyRightYear());
+											System.out.println("Book_CopyRightYear is-->" + bookBean1.getCopyRightYear());
 											System.out.println("Book_DateAdded is-->" + bookBean1.getDateAdded());
 											System.out.println("Book_Status is-->" + bookBean1.getStatus());
 										} else {
@@ -486,14 +474,12 @@ public class Controller {
 										} catch (InputMismatchException e) {
 											flag = false;
 											System.err.println("Book-Category should contains only Alphabates");
-										} catch (ValidationException e) {
+										} catch (LMSException e) {
 											flag = false;
 											System.err.println(e.getMessage());
 										}
 									} while (!flag);
-									//
-									// BookBean bean5 = new BookBean();
-									// bean5.setAuthor(bookCategory);
+	
 									List<BookBean> bookIds = service.searchBookByCategory(bookCategory);
 									for (BookBean bookBean1 : bookIds) {
 										if (bookBean1 != null) {
@@ -526,7 +512,7 @@ public class Controller {
 										} catch (InputMismatchException e) {
 											flag = false;
 											System.err.println("Id should contains only digits");
-										} catch (ValidationException e) {
+										} catch (LMSException e) {
 											flag = false;
 											System.err.println(e.getMessage());
 										}
@@ -590,7 +576,7 @@ public class Controller {
 										} catch (InputMismatchException e) {
 											flag = false;
 											System.err.println("Id should contains only digits");
-										} catch (ValidationException e) {
+										} catch (LMSException e) {
 											flag = false;
 											System.err.println(e.getMessage());
 										}
@@ -605,7 +591,7 @@ public class Controller {
 										} catch (InputMismatchException e) {
 											flag = false;
 											System.err.println("Id should contains only digits");
-										} catch (ValidationException e) {
+										} catch (LMSException e) {
 											flag = false;
 											System.err.println(e.getMessage());
 										}
@@ -681,7 +667,7 @@ public class Controller {
 										} catch (InputMismatchException e) {
 											flag = false;
 											System.err.println("Id should contains only digits");
-										} catch (ValidationException e) {
+										} catch (LMSException e) {
 											flag = false;
 											System.err.println(e.getMessage());
 										}
@@ -696,7 +682,7 @@ public class Controller {
 										} catch (InputMismatchException e) {
 											flag = false;
 											System.err.println("Id should contains only digits");
-										} catch (ValidationException e) {
+										} catch (LMSException e) {
 											flag = false;
 											System.err.println(e.getMessage());
 										}
@@ -754,7 +740,7 @@ public class Controller {
 							} catch (InputMismatchException e) {
 								flag = false;
 								System.err.println("Id should contains only digits");
-							} catch (ValidationException e) {
+							} catch (LMSException e) {
 								flag = false;
 								System.err.println(e.getMessage());
 							}
@@ -769,7 +755,7 @@ public class Controller {
 							} catch (InputMismatchException e) {
 								flag = false;
 								System.err.println("Name should contains only Alphabates");
-							} catch (ValidationException e) {
+							} catch (LMSException e) {
 								flag = false;
 								System.err.println(e.getMessage());
 							}
@@ -784,7 +770,7 @@ public class Controller {
 							} catch (InputMismatchException e) {
 								flag = false;
 								System.err.println("Mobile Number  should contains only numbers");
-							} catch (ValidationException e) {
+							} catch (LMSException e) {
 								flag = false;
 								System.err.println(e.getMessage());
 							}
@@ -799,7 +785,7 @@ public class Controller {
 							} catch (InputMismatchException e) {
 								flag = false;
 								System.err.println("Email should be proper ");
-							} catch (ValidationException e) {
+							} catch (LMSException e) {
 								flag = false;
 								System.err.println(e.getMessage());
 							}
@@ -814,7 +800,7 @@ public class Controller {
 							} catch (InputMismatchException e) {
 								flag = false;
 								System.err.println("Enter correct Password ");
-							} catch (ValidationException e) {
+							} catch (LMSException e) {
 								flag = false;
 								System.err.println(e.getMessage());
 							}
@@ -866,7 +852,7 @@ public class Controller {
 										} catch (InputMismatchException e) {
 											flag = false;
 											System.err.println("Book-Author should contains only Alphabates");
-										} catch (ValidationException e) {
+										} catch (LMSException e) {
 											flag = false;
 											System.err.println(e.getMessage());
 										}
@@ -906,7 +892,7 @@ public class Controller {
 										} catch (InputMismatchException e) {
 											flag = false;
 											System.err.println("Book-Author should contains only Alphabates");
-										} catch (ValidationException e) {
+										} catch (LMSException e) {
 											flag = false;
 											System.err.println(e.getMessage());
 										}
@@ -967,7 +953,7 @@ public class Controller {
 										} catch (InputMismatchException e) {
 											flag = false;
 											System.err.println("Book-Category should contains only Alphabates");
-										} catch (ValidationException e) {
+										} catch (LMSException e) {
 											flag = false;
 											System.err.println(e.getMessage());
 										}
@@ -1037,7 +1023,7 @@ public class Controller {
 										} catch (InputMismatchException e) {
 											flag = false;
 											System.err.println("Id should contains only digits");
-										} catch (ValidationException e) {
+										} catch (LMSException e) {
 											flag = false;
 											System.err.println(e.getMessage());
 										}
@@ -1055,7 +1041,7 @@ public class Controller {
 										} catch (InputMismatchException e) {
 											flag = false;
 											System.err.println("Id should contains only digits");
-										} catch (ValidationException e) {
+										} catch (LMSException e) {
 											flag = false;
 											System.err.println(e.getMessage());
 										}
@@ -1090,7 +1076,7 @@ public class Controller {
 										} catch (InputMismatchException e) {
 											flag = false;
 											System.err.println("Id should contains only digits");
-										} catch (ValidationException e) {
+										} catch (LMSException e) {
 											flag = false;
 											System.err.println(e.getMessage());
 										}
@@ -1105,7 +1091,7 @@ public class Controller {
 										} catch (InputMismatchException e) {
 											flag = false;
 											System.err.println("Id should contains only digits");
-										} catch (ValidationException e) {
+										} catch (LMSException e) {
 											flag = false;
 											System.err.println(e.getMessage());
 										}
