@@ -9,7 +9,6 @@ import lombok.Data;
 @Data
 @Embeddable
 public class BookIssueDetailsPK implements Serializable {
-
 	private int bookId;
 	private String email;
 }

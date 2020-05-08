@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="TestPersistence"
 		transaction-type="RESOURCE_LOCAL">
-		<class>com.capgemini.librarymanagementsystemhibernate.dto.UsersBean</class>
+		<class>com.capgemini.librarymanagementsystemhibernate.dto.UserBean</class>
 		<class>com.capgemini.librarymanagementsystemhibernate.dto.BookBean</class>
 		<class>com.capgemini.librarymanagementsystemhibernate.dto.BookIssueDetails</class>
 		<class>com.capgemini.librarymanagementsystemhibernate.dto.BorrowedBook</class>
