@@ -1,11 +1,10 @@
 package com.capgemini.librarymanagementsystemjdbc.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.capgemini.librarymanagementsystemjdbc.dao.AdminDAO;
 import com.capgemini.librarymanagementsystemjdbc.dto.BookBean;
-import com.capgemini.librarymanagementsystemjdbc.dto.UsersBean;
+import com.capgemini.librarymanagementsystemjdbc.dto.UserBean;
 import com.capgemini.librarymanagementsystemjdbc.factory.LMSFactory;
 
 public class AdminServiceImp implements AdminService {
@@ -48,20 +47,10 @@ public class AdminServiceImp implements AdminService {
 		return dao.removeBook(bookId);
 	}
 
-	@Override
-	public ArrayList<BookBean> getBookIds() {
-		
-		return dao.getBookIds();
-	}
+
 
 	@Override
-	public ArrayList<BookBean> getBooksInfo() {
-		
-		return dao.getBookIds();
-	}
-
-	@Override
-	public List<UsersBean> showUsers() {
+	public List<UserBean> showUsers() {
 		
 		return dao.showUsers();
 	}
@@ -76,6 +65,18 @@ public class AdminServiceImp implements AdminService {
 	public boolean returnBook(int bookId, int id) {
 		
 		return dao.returnBook(bookId, id);
+	}
+
+	@Override
+	public List<BookBean> getBookIds() {
+		
+		return dao.getBookIds();
+	}
+
+	@Override
+	public List<BookBean> getBooksInfo() {
+		// TODO Auto-generated method stub
+		return dao.getBooksInfo();
 	}
 
 }

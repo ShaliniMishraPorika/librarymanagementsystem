@@ -9,6 +9,4 @@ public class BorrowedBooks implements Serializable{
 	private int borrowedBookId;
 	private int borrowedUserId;
 	private String email;
-	private Date issueDate;
-
 }

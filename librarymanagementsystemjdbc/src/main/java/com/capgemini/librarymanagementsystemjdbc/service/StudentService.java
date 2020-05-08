@@ -1,15 +1,15 @@
 package com.capgemini.librarymanagementsystemjdbc.service;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 import com.capgemini.librarymanagementsystemjdbc.dto.BookBean;
 
 public interface StudentService {
-	public BookBean searchBookByTitle(String title); 
-	public BookBean searchBookByAuthor(String author);
+	BookBean searchBookByTitle(String title); 
+	BookBean searchBookByAuthor(String author);
 	BookBean searchBookById(int bookId);
-	public ArrayList<BookBean> getBookIds();
-	public ArrayList<BookBean> getBooksInfo();
+	LinkedList<BookBean> getBookIds();
+	LinkedList<BookBean> getBooksInfo();
 	boolean requestReturnBook(int bookId, int userId);	
 	boolean requestBook(int userId, int bookId);
 }
